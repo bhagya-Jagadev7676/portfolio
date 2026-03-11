@@ -213,7 +213,7 @@ export function Connect({ about }: { about?: AboutDto | null }) {
                   Direct Contact
                 </h3>
                 <p className="text-text-secondary mb-6">
-                  Get in touch with me directly via email or phone:
+                  Get in touch with me directly via email:
                 </p>
                 <div className="space-y-3">
                   <CardButton
@@ -222,13 +222,6 @@ export function Connect({ about }: { about?: AboutDto | null }) {
                     leftIcon={<FaEnvelope className="h-5 w-5" />}
                   >
                     {email}
-                  </CardButton>
-                  <CardButton
-                    variant="secondary"
-                    href="tel:+917676831143"
-                    leftIcon={<FaPhone className="h-5 w-5" />}
-                  >
-                    +91 7676831143
                   </CardButton>
                 </div>
               </Card>
