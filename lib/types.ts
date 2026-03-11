@@ -8,6 +8,7 @@ export interface ImageDto {
 export interface LinksDto {
   website: string;
   email: string;
+  phone?: string;
   github: string;
   linkedin: string;
   xtwitter: string;

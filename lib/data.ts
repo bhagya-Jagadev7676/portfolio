@@ -17,6 +17,7 @@ export const about: AboutDto = {
   links: {
     website: "",
     email: "bhagyajagadev06@gmail.com",
+    phone: "+917676357187",
     github: "https://github.com/bhagya-Jagadev7676",
     linkedin: "https://linkedin.com/in/bhagyashree-jagadev-622710374/",
     xtwitter: "",
