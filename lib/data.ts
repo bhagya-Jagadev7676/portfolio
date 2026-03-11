@@ -11,8 +11,8 @@ export const about: AboutDto = {
   status: "Available for opportunities",
   images: {
     bannerWebp: "/banner.webp",
-    profilePng: "/profile.webp",
-    profileWebp: "/profile.webp",
+    profilePng: "/profile.jpeg",
+    profileWebp: "/profile.jpeg",
   },
   links: {
     website: "",
@@ -200,7 +200,7 @@ export const certifications: CertificationDto[] = [
     date: "2024",
     description: "Comprehensive certification in front-end development covering HTML, CSS, JavaScript, and modern web technologies.",
     credentialUrl: "#",
-    image: "/placeholder.webp",
+    image: "/frontend.jpeg",
   },
   {
     title: "Back End Development",
@@ -208,7 +208,7 @@ export const certifications: CertificationDto[] = [
     date: "2025",
     description: "Professional certification in back-end development technologies and server-side programming.",
     credentialUrl: "#",
-    image: "/placeholder.webp",
+    image: "/backend.jpeg",
   },
   {
     title: "GitHub Co-pilot",
@@ -216,6 +216,14 @@ export const certifications: CertificationDto[] = [
     date: "2025",
     description: "Certification in using GitHub Co-pilot for AI-assisted coding and development workflows.",
     credentialUrl: "#",
-    image: "/placeholder.webp",
+    image: "/copilot.jpeg",
+  },
+  {
+    title: "Namaste JavaScript",
+    issuer: "Certificate Course",
+    date: "2025",
+    description: "Advanced JavaScript certification covering core concepts, asynchronous programming, and modern JavaScript features.",
+    credentialUrl: "#",
+    image: "/namastejs.jpeg",
   },
 ];

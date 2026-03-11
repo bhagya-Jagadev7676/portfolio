@@ -6,3 +6,4 @@ export { Container } from "./Container";
 export { Section, SectionHeader } from "./Section";
 export { Badge } from "./Badge";
 export { ThemeToggle } from "./ThemeToggle";
+export { default as OrbitingSkills } from "./orbiting-skills";

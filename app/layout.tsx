@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Bhagyashree Jagadev Portfolio",
     images: [
       {
-        url: '/profile.webp',
+        url: '/profile.jpeg',
         width: 1200,
         height: 630,
         alt: 'Bhagyashree Jagadev',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bhagyashree Jagadev | BCA Graduate",
     description: "BCA Graduate with strong foundation in Python, Java, C, Web Development, and Database Management",
-    images: ['/profile.webp'],
+    images: ['/profile.jpeg'],
   },
 };
 

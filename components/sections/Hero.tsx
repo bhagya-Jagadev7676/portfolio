@@ -30,7 +30,13 @@ export function Hero({ about }: { about?: AboutDto | null }) {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-bg-primary">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-bg-primary pt-24">
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-purple/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+      
       {/* Subtle dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.4] dark:opacity-30 pointer-events-none"
@@ -46,19 +52,21 @@ export function Hero({ about }: { about?: AboutDto | null }) {
       />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
-        {/* Profile photo */}
+        {/* Profile photo with enhanced styling */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.4 }}
-          className="relative mb-8 size-28 sm:size-32 md:size-36 rounded-full overflow-hidden ring-2 ring-border-light dark:ring-white/10 shadow-xl"
+          className="relative mb-8 size-32 sm:size-36 md:size-40 lg:size-44 rounded-full overflow-hidden ring-4 ring-accent-blue/30 dark:ring-accent-purple/30 shadow-2xl shadow-accent-blue/20 dark:shadow-accent-purple/20 group cursor-pointer"
         >
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
           <Image
-            src={about?.images?.profilePng || "/profile.webp"}
+            src={about?.images?.profilePng || "/profile.jpeg"}
             alt={about?.name || "Profile"}
             fill
-            sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 160px"
-            className="object-cover"
+            sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 160px, 176px"
+            className="object-cover group-hover:scale-110 transition-transform duration-500"
             priority
           />
         </motion.div>
@@ -85,55 +93,53 @@ export function Hero({ about }: { about?: AboutDto | null }) {
           </motion.div>
         </Tooltip>
 
-        {/* Name: single bold line */}
+        {/* Name: single bold line with enhanced gradient */}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-linear-to-r from-text-primary via-accent-blue to-accent-purple mb-8 animate-fade-in tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-blue via-accent-purple to-accent-blue bg-[length:200%_auto] animate-gradient mb-8 tracking-tight"
         >
           {about?.name}
         </motion.h1>
 
-        {/* Tagline with monospace accent */}
-        <motion.p
+        {/* Tagline with enhanced styling */}
+        <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="font-mono font-semibold text-xl sm:text-2xl text-text-muted tracking-wide mb-6"
+          className="space-y-4 mb-10"
         >
-          {about?.title}
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.35 }}
-          className="text-text-tertiary text-lg md:text-xl max-w-lg mb-10"
-        >
-          {about?.tagline}
-        </motion.p>
+          <p className="font-mono font-semibold text-xl sm:text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-text-primary to-accent-blue tracking-wide">
+            {about?.title}
+          </p>
+          <p className="text-text-tertiary text-lg md:text-xl max-w-2xl px-4">
+            {about?.tagline}
+          </p>
+        </motion.div>
 
-        {/* Availability chip */}
+        {/* Availability chip with enhanced styling */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3, delay: 0.45 }}
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-bg-elevated border border-border-light text-text-secondary text-xs font-medium uppercase tracking-wider">
-            <span className="size-1.5 rounded-full status-available-dot" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent-blue/10 to-accent-purple/10 border border-accent-blue/30 dark:border-accent-purple/30 text-text-primary text-sm font-semibold uppercase tracking-wider shadow-lg shadow-accent-blue/10 backdrop-blur-sm">
+            <span className="size-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
             {about?.status}
           </span>
         </motion.div>
 
-        {/* Social links */}
+        {/* Social links with enhanced animations */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.65 }}
-          className="flex items-center gap-5 text-text-muted mt-8 flex-wrap"
+          className="flex items-center gap-3 text-text-muted mt-10 flex-wrap justify-center"
         >
           {about?.links &&
-            Object.entries(about.links).map(([key, url]) => {
+            Object.entries(about.links).map(([key, url], index) => {
               if (key === "website" || key === "email") return null;
               if (!url) return null;
 
@@ -143,16 +149,23 @@ export function Hero({ about }: { about?: AboutDto | null }) {
               if (!IconComponent) return null;
 
               return (
-                <IconButton
+                <motion.div
                   key={key}
-                  href={url}
-                  external
-                  variant="ghost"
-                  className="hover:text-accent-blue hover:bg-transparent"
-                  aria-label={key}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 + index * 0.1 }}
+                  whileHover={{ y: -4 }}
                 >
-                  <IconComponent className="size-5" />
-                </IconButton>
+                  <IconButton
+                    href={url}
+                    external
+                    variant="ghost"
+                    className="hover:text-accent-blue hover:bg-accent-blue/10 hover:border-accent-blue/30 border border-transparent transition-all duration-300 size-12 rounded-xl"
+                    aria-label={key}
+                  >
+                    <IconComponent className="size-5" />
+                  </IconButton>
+                </motion.div>
               );
             })}
         </motion.div>
